@@ -14,8 +14,8 @@ class Aluno {
     // Método que retorna uma ficha do aluno formatada
     public String getFicha() {
         return "Nome: " + nomeComp +
-               "\nRA: " + ra +
-               "\nCurso: " + curso + "\n";
+                "\nRA: " + ra +
+                "\nCurso: " + curso + "\n";
     }
 }
 
@@ -45,7 +45,8 @@ class Notas {
             this.notaFinal = calcularNotaFinal(); // Calcula a nota final
             this.reprov = definirSituacao(); // Define a situação do aluno
         } else {
-            throw new IllegalArgumentException("Notas ou presença inválidas."); // Lança exceção se os dados forem inválidos
+            throw new IllegalArgumentException("Notas ou presença inválidas."); // Lança exceção se os dados forem
+                                                                                // inválidos
         }
     }
 
@@ -62,7 +63,8 @@ class Notas {
             case 4: // Média ponderada com pesos específicos para 4 avaliações
                 return (nota1 * 0.15) + (nota2 * 0.30) + (nota3 * 0.10) + (nota4 * 0.45);
             default:
-                throw new IllegalArgumentException("Número de avaliações inválido!"); // Lança exceção se o número de avaliações for inválido
+                throw new IllegalArgumentException("Número de avaliações inválido!"); // Lança exceção se o número de
+                                                                                      // avaliações for inválido
         }
     }
 
@@ -71,11 +73,12 @@ class Notas {
         if (ead && notaFinal > 5) { // Se é EAD, só verifica a nota
             return "Sua nota foi de " + notaFinal + ". Você está APROVADO.";
         }
-        
+
         if (notaFinal < 5) { // Reprovação por nota
             return "Sua nota foi de " + notaFinal + ". Você está REPROVADO.";
         } else if (presenca < 75) { // Reprovação por falta
-            return "Sua nota foi de " + notaFinal + ", mas sua presença ficou em " + presenca + "%. Você está REPROVADO.";
+            return "Sua nota foi de " + notaFinal + ", mas sua presença ficou em " + presenca
+                    + "%. Você está REPROVADO.";
         } else { // Aprovação
             return "Sua nota foi de " + notaFinal + ". Você está APROVADO.";
         }
